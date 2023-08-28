@@ -25,7 +25,7 @@ ALTER TABLE Analysis ADD FOREIGN KEY (an_group) REFERENCES Groups (gr_id);
 ALTER TABLE Orders ADD FOREIGN KEY (ord_an) REFERENCES Analysis (an_id);
 
 -- fetch 
-SELECT an_name, ord.ord_datetime FROM Analysis an
+SELECT an.an_name, an.an_price, ord.ord_datetime FROM Analysis an
 JOIN Groups gr ON an.an_group = gr.gr_id
 JOIN Orders ord ON ord.ord_an = an.an_id
 WHERE ord_datetime BETWEEN ('2020-02-05') AND DATEADD (week, 1, '2020-02-05')
